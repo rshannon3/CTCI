@@ -1,0 +1,5 @@
+9.8 Pastebin: Design a system like Pastebin, where a user can enter a piece of text and get a randomly generated URL to access it. Hints:#165, #184, #206, #232
+
+Since everything is stored as plaintext, we can store all associated files as txt. Each unique URL could double as the primary key for the DB entry. The DB entry can store things like the filepath to the txt, the date posted, the username (if any), the IP address (for law enforcement reasons), API information if applicable.
+
+Since the URLs will use a UUID, the distribution should be roughly even. We can then follow the principles laid out in 9.4 to even distribute the resources to multiple machines. This way the load on each individual machine when requesting a file is reduced.

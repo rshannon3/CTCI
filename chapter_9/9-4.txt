@@ -1,0 +1,7 @@
+9.4 Duplicate URLs: You have 10 billion URLs. How do you detect the duplicate documents? In this case, assume "duplicate" means that the URLs are identical. Hints: #326, #347
+
+ Assuming that we have the system resources to handle this, we can start by sorting the URLs. Now, all duplicates will be adjacent to one another. We can easily remove the duplicates by selecting a URL, and then iterating until we find a different element.
+
+If we are starting from the ground up, we could likely want to separate the URLs into multiple files to reduce the size and search time of finding duplicate entries. This way we can search in parallel by having multiple machines, with each machine only handling one portion of the entire 10 billion URLs. At creation time, we can hand off the new URL to the appropriate bucket, and it can check for a duplicate.
+
+To divide the URLs, we could use a property of the URL. If this does not produce a roughly even distribution, we instead use a hash map to create the desired number of output “buckets”. This function should aim to equally distribute the number of URLs among the buckets.

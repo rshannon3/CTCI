@@ -1,0 +1,3 @@
+9.2 Social Network: How would you design the data structures for a very large social network like Facebook or Linkedin? Describe how you would design an algorithm to show the shortest path between two people (e.g., Me -> Bob -> Susan -> Jason -> You). Hints: #270, #285, #304, #321
+
+We can start by abstractly representing each unique identity as a node, with each connection being represented by an edge. The data structure holding this information could be a list of IDs of each of their connections. We can use a bidirectional search to go from both ends until an intersection is found. This information would be useful in “suggested friend” features that are common in other social networks and could be cached in a pool of possible “known but not friended” contacts.
